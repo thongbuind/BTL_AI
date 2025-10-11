@@ -1,0 +1,5 @@
+train: /Users/thongbui.nd/Documents/Thong Bui/BTL_AI/dataset/images/train
+val: /Users/thongbui.nd/Documents/Thong Bui/BTL_AI/dataset/images/val
+nc: 1
+names:
+- RB19

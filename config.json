@@ -1,0 +1,7 @@
+{
+    "train_ratio": 0.9,
+    "val_ratio": 0.05,
+    "image_size": 640,
+    "batch": 8,
+    "epochs": 100
+}
