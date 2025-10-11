@@ -1,5 +1,0 @@
-train: /content/drive/MyDrive/BTL_AI/dataset/images/train
-val: /content/drive/MyDrive/BTL_AI/dataset/images/val
-nc: 1
-names:
-- RB19
