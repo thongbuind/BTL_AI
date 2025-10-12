@@ -4,7 +4,11 @@ __pycache__/
 
 *.tmp
 
-background_without_RB19/
-RB19_data/
-dataset/
 create_dataset.py
+
+dataset/
+
+background_without_RB19/
+
+RB19_data/
+
