@@ -17,7 +17,7 @@ src_dir = project_root / "src"
 with open(config_file, 'r') as f:
     config = json.load(f)
 image_size = config["image_size"]
-batch = config["batch"]
+batch_size = config["batch_size"]
 epochs = config["epochs"]
 
 model = YOLO("yolov8n.pt")
@@ -25,10 +25,10 @@ model.train(
     data = f"{DATASET_DIR}/data.yaml",
     epochs = epochs,
     imgsz = image_size,
-    batch = batch,
+    batch = batch_size,
     device = 0,
     project=f"{PROJECT_DIR}/runs",
-    name="RB19_detect",
+    name="model_detect",
 )
 
 print("Training xong! Kết quả lưu tại: runs/detect/train")
@@ -37,16 +37,16 @@ test_results = model.val(
     data=f"{DATASET_DIR}/data.yaml",
     split="test",
     imgsz=image_size,
-    batch=batch,
+    batch=batch_size,
     device=0,
 )
 
-result_file = Path(f"{PROJECT_DIR}/runs/RB19_detect/test_results.json")
+result_file = Path(f"{PROJECT_DIR}/runs/model_detect/test_results.json")
 with open(result_file, "w") as f:
     json.dump(test_results.results_dict, f, indent=4)
 print(f"\nKết quả test đã lưu tại: {result_file}")
 
-predict_dir = Path(f"{PROJECT_DIR}/runs/RB19_detect/test_images")
+predict_dir = Path(f"{PROJECT_DIR}/runs/model_detect/test_images")
 predict_dir.mkdir(parents=True, exist_ok=True)
 
 predict_results = model.predict(
